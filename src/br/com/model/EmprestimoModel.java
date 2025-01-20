@@ -3,7 +3,7 @@ package br.com.model;
 import javax.persistence.*;
 import java.sql.Date;
 
-
+//gustavo é flameguista
 @Entity
 @Table(name = "Usuario")
 public class EmprestimoModel {
