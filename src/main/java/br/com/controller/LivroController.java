@@ -2,22 +2,11 @@ package br.com.controller;
 
 import br.com.model.LivroModel;
 import br.com.repository.LivroRepository;
-import br.com.view.LivroView;
 
 import java.sql.SQLException;
 
 public class LivroController {
     LivroRepository livroRepository = new LivroRepository();
-
-    public void apresentaMenuLivro() {
-        LivroView livroView = new LivroView();
-        try {
-            livroView.apresentaMenuLivro();
-        } catch (Exception e) {
-            System.out.println("Erro ao apresentar o menu de livros: " + e.getMessage());
-        }
-    }
-
 
     public String salvarLivro(LivroModel livro) throws SQLException {
         Exception e = livroRepository.salvar(livro);

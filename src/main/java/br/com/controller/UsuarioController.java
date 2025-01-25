@@ -2,21 +2,11 @@ package br.com.controller;
 
 import br.com.model.UsuarioModel;
 import br.com.repository.UsuarioRepository;
-import br.com.view.UsuarioView;
 
 import java.sql.SQLException;
 
 public class UsuarioController {
     UsuarioRepository usuarioRepository = new UsuarioRepository();
-
-    public void apresentaMenuUsuario() {
-        UsuarioView usuarioView = new UsuarioView();
-        try {
-            usuarioView.apresentaMenuUsuario();
-        } catch (Exception e) {
-            System.out.println("Erro ao apresentar o menu de usuários: " + e.getMessage());
-        }
-    }
 
     public String salvarUsuario(UsuarioModel usuario) throws SQLException {
         Exception e = usuarioRepository.salvar(usuario);
