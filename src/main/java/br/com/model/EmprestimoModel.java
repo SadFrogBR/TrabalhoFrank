@@ -10,7 +10,7 @@ import java.util.Date;
 public class EmprestimoModel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmprestimo;
 
     @ManyToOne
