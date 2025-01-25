@@ -19,12 +19,12 @@ public class UsuarioRemover {
     public UsuarioRemover() {
         usuarioController = new UsuarioController();
 
-        // Configurar o JTextArea para exibir os detalhes
+
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
 
-        // Configurar ação do botão "Buscar"
+
         buscarButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -52,7 +52,7 @@ public class UsuarioRemover {
             }
         });
 
-        // Configurar ação do botão "Remover"
+
         removerButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -69,7 +69,7 @@ public class UsuarioRemover {
             }
         });
 
-        // Configurar ação do botão "Cancelar"
+
         cancelarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {
@@ -77,7 +77,7 @@ public class UsuarioRemover {
             }
         });
 
-        // Inicialmente desativar o botão "Remover"
+
         removerButton.setEnabled(false);
     }
 

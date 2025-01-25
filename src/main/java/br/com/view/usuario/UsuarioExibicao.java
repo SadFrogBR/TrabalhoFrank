@@ -18,7 +18,7 @@ public class UsuarioExibicao {
     public UsuarioExibicao() {
         usuarioController = new UsuarioController();
 
-        // Configurar ação do botão "Consultar"
+
         consultarButton.addActionListener(e -> {
             String idTexto = idField.getText();
             try {
@@ -36,7 +36,7 @@ public class UsuarioExibicao {
             }
         });
 
-        // Configurar ação do botão "Voltar"
+
         voltarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {

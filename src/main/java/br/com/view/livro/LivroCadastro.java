@@ -26,13 +26,13 @@ public class LivroCadastro {
     public LivroCadastro() {
         livroController = new LivroController();
 
-        // Configurar JSpinner para data
+
         SpinnerDateModel dateModel = new SpinnerDateModel();
         dataPublicacaoField.setModel(dateModel);
         JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dataPublicacaoField, "yyyy-MM-dd");
         dataPublicacaoField.setEditor(dateEditor);
 
-        // Configurar ação do botão salvar
+
         salvarButton.addActionListener(e -> {
             LivroModel livro = coletaDados();
             if (livro != null) {
@@ -52,7 +52,7 @@ public class LivroCadastro {
             }
         });
 
-        // Configurar ação do botão voltar
+
         voltarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {

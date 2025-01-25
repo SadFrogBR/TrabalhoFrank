@@ -19,7 +19,7 @@ public class LivroExibicao {
     public LivroExibicao() {
         livroController = new LivroController();
 
-        // Configurar ação do botão "Consultar"
+
         consultarButton.addActionListener(e -> {
             String idTexto = idField.getText();
             try {
@@ -37,7 +37,7 @@ public class LivroExibicao {
             }
         });
 
-        // Configurar ação do botão "Voltar"
+
         voltarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {

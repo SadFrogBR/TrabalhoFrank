@@ -22,18 +22,18 @@ public class LivroEdicao {
     private JButton voltarButton;
 
     private final LivroController livroController;
-    private LivroModel livroExistente; // Variável para armazenar o livro buscado
+    private LivroModel livroExistente;
 
     public LivroEdicao() {
         livroController = new LivroController();
 
-        // Configurar JSpinner para data de publicação
+
         SpinnerDateModel dateModel = new SpinnerDateModel();
         dataPublicacaoField.setModel(dateModel);
         JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dataPublicacaoField, "yyyy-MM-dd");
         dataPublicacaoField.setEditor(dateEditor);
 
-        // Configurar ação do botão "Buscar"
+
         buscarButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -51,7 +51,7 @@ public class LivroEdicao {
             }
         });
 
-        // Configurar ação do botão "Salvar"
+
         salvarButton.addActionListener(e -> {
             if (livroExistente == null) {
                 JOptionPane.showMessageDialog(mainPanel, "Nenhum livro foi buscado para edição. Por favor, busque um livro primeiro.");
@@ -81,7 +81,7 @@ public class LivroEdicao {
             }
         });
 
-        // Configurar ação do botão "Voltar"
+
         voltarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {

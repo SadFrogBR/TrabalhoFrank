@@ -20,12 +20,12 @@ public class LivroRemover {
     public LivroRemover() {
         livroController = new LivroController();
 
-        // Configurar o JTextArea para exibir os detalhes
+
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
 
-        // Configurar ação do botão "Buscar"
+
         buscarButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -54,7 +54,7 @@ public class LivroRemover {
             }
         });
 
-        // Configurar ação do botão "Remover"
+
         removerButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -71,7 +71,7 @@ public class LivroRemover {
             }
         });
 
-        // Configurar ação do botão "Cancelar"
+
         cancelarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {
@@ -79,7 +79,7 @@ public class LivroRemover {
             }
         });
 
-        // Inicialmente desativar o botão "Remover"
+
         removerButton.setEnabled(false);
     }
 

@@ -21,12 +21,12 @@ public class UsuarioCadastro {
     public UsuarioCadastro() {
         usuarioController = new UsuarioController();
 
-        // Adicionar opções ao JComboBox
+
         sexoComboBox.addItem("Masculino");
         sexoComboBox.addItem("Feminino");
         sexoComboBox.addItem("Outro");
 
-        // Configurar ação do botão "Salvar"
+
         salvarButton.addActionListener(e -> {
             UsuarioModel usuario = coletaDados();
             if (usuario != null) {
@@ -43,7 +43,7 @@ public class UsuarioCadastro {
             }
         });
 
-        // Configurar ação do botão "Voltar"
+
         voltarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {
@@ -55,7 +55,7 @@ public class UsuarioCadastro {
     private UsuarioModel coletaDados() {
         UsuarioModel usuario = new UsuarioModel();
 
-        // Validar Nome
+
         String nome = nomeField.getText().trim();
         if (nome.isEmpty()) {
             JOptionPane.showMessageDialog(mainPanel, "O campo Nome é obrigatório.");
@@ -63,11 +63,11 @@ public class UsuarioCadastro {
         }
         usuario.setNome(nome);
 
-        // Obter Sexo
+
         String sexo = (String) sexoComboBox.getSelectedItem();
         usuario.setSexo(sexo);
 
-        // Validar Número de Celular
+
         String numeroCelular = numeroCelularField.getText().trim();
         if (!numeroCelular.matches("\\(\\d{2}\\) \\d{5}-\\d{4}")) {
             JOptionPane.showMessageDialog(mainPanel, "Número de celular inválido. O formato correto é (xx) xxxxx-xxxx.");
@@ -75,7 +75,7 @@ public class UsuarioCadastro {
         }
         usuario.setNumeroCelular(numeroCelular);
 
-        // Validar Email
+
         String email = emailField.getText().trim();
         if (!email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")) {
             JOptionPane.showMessageDialog(mainPanel, "E-mail inválido.");
@@ -83,7 +83,7 @@ public class UsuarioCadastro {
         }
         usuario.setEmail(email);
 
-        // Validar Número de Identificação
+
         try {
             int numeroIdentificacao = Integer.parseInt(numeroIdentificacaoField.getText().trim());
             usuario.setNumeroIdentificacao(numeroIdentificacao);

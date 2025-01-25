@@ -24,12 +24,12 @@ public class UsuarioEdicao {
     public UsuarioEdicao() {
         usuarioController = new UsuarioController();
 
-        // Adicionar opções ao JComboBox
+
         sexoComboBox.addItem("Masculino");
         sexoComboBox.addItem("Feminino");
         sexoComboBox.addItem("Outro");
 
-        // Configurar ação do botão "Buscar"
+
         buscarButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -47,7 +47,7 @@ public class UsuarioEdicao {
             }
         });
 
-        // Configurar ação do botão "Salvar"
+
         salvarButton.addActionListener(e -> {
             if (usuarioExistente == null) {
                 JOptionPane.showMessageDialog(mainPanel, "Nenhum usuário foi buscado para edição. Por favor, busque um usuário primeiro.");
@@ -86,7 +86,7 @@ public class UsuarioEdicao {
             }
         });
 
-        // Configurar ação do botão "Voltar"
+
         voltarButton.addActionListener(e -> {
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
             if (frame != null) {

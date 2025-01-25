@@ -19,19 +19,19 @@ public class ViewPrincipalSwing extends JFrame{
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        // botao livro
+
         livroButton.addActionListener(e -> {
             LivroCrudMenu menu = new LivroCrudMenu();
             menu.exibirMenu();
         });
 
-        // botao usuario
+
         usuarioButton.addActionListener(e -> {
             UsuarioCrudMenu menu = new UsuarioCrudMenu();
             menu.exibirMenu();
         });
 
-        // botao sair
+
         sairButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, "Fechando Programa.");
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
