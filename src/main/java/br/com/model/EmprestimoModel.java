@@ -82,7 +82,11 @@ public class EmprestimoModel {
         try {
             return new SimpleDateFormat("yyyy-MM-dd").parse(date);
         } catch (ParseException e) {
+<<<<<<< HEAD
             throw new IllegalArgumentException("Data deve estar no formato yyyy-MM-dd",  e);
+=======
+            throw new IllegalArgumentException("Data deve estar no formato yyyy-MM-dd", e);
+>>>>>>> a146ff513c38c43dc314fcf98b829d5b2bce7541
         }
     }
 
