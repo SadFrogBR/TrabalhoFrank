@@ -4,6 +4,7 @@ import br.com.model.LivroModel;
 import br.com.repository.LivroRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class LivroController {
     LivroRepository livroRepository = new LivroRepository();
@@ -42,5 +43,9 @@ public class LivroController {
         } else {
             return "Erro ao atualizar o livro: " + e.getMessage();
         }
+    }
+
+    public List<LivroModel> listarLivrosDisponiveis() throws SQLException {
+        return livroRepository.listarLivrosDisponiveis();
     }
 }

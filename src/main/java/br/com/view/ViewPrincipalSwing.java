@@ -1,6 +1,10 @@
 package br.com.view;
 
+import br.com.view.emprestimo.EmprestimoDevolucaoView;
+import br.com.view.emprestimo.EmprestimoUsuarioView;
+import br.com.view.emprestimo.EmprestimoView;
 import br.com.view.livro.LivroCrudMenu;
+import br.com.view.livro.LivroDisponivelView;
 import br.com.view.usuario.UsuarioCrudMenu;
 
 import javax.swing.*;
@@ -10,6 +14,10 @@ public class ViewPrincipalSwing extends JFrame{
     private JButton livroButton;
     private JButton usuarioButton;
     private JButton sairButton;
+    private JButton fazerEmprestimoButton;
+    private JButton fazerDevolucaoButton;
+    private JButton listarLivrosDisponiveisButton;
+    private JButton listarEmprestimosAtivosButton;
 
     public ViewPrincipalSwing() {
         this.setTitle("Menu Principal");
@@ -29,6 +37,26 @@ public class ViewPrincipalSwing extends JFrame{
         usuarioButton.addActionListener(e -> {
             UsuarioCrudMenu menu = new UsuarioCrudMenu();
             menu.exibirMenu();
+        });
+
+        listarLivrosDisponiveisButton.addActionListener(e -> {
+            LivroDisponivelView livroDisponivelView = new LivroDisponivelView();
+            livroDisponivelView.exibir();
+        });
+
+        listarEmprestimosAtivosButton.addActionListener(e -> {
+            EmprestimoUsuarioView emprestimoUsuarioView = new EmprestimoUsuarioView();
+            emprestimoUsuarioView.exibir();
+        });
+
+        fazerEmprestimoButton.addActionListener(e -> {
+            EmprestimoView emprestimoView = new EmprestimoView();
+            emprestimoView.exibir();
+        });
+
+        fazerDevolucaoButton.addActionListener(e -> {
+            EmprestimoDevolucaoView emprestimoDevolucaoView = new EmprestimoDevolucaoView();
+            emprestimoDevolucaoView.exibir();
         });
 
 

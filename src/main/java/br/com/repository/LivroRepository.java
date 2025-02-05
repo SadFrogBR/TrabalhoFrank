@@ -91,4 +91,18 @@ public class LivroRepository {
             return null;
         }
     }
+
+    public List<LivroModel> listarLivrosDisponiveis() {
+        try {
+            return entityManager.createQuery(
+                            "SELECT l FROM LivroModel l WHERE l.qtdDisponivel > 0",
+                            LivroModel.class
+                    )
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
