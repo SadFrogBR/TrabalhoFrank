@@ -28,11 +28,11 @@ public class EmprestimoUsuarioView {
             }
 
             try {
-                List<EmprestimoModel> emprestimos = emprestimoController.listarEmprestimosPorNomeUsuario(nomeUsuario);
+                List<EmprestimoModel> emprestimos = emprestimoController.listarEmprestimosAtivosPorNomeUsuario(nomeUsuario);
                 if (emprestimos == null || emprestimos.isEmpty()) {
-                    resultadoArea.setText("Nenhum empréstimo encontrado para o usuário: " + nomeUsuario);
+                    resultadoArea.setText("Nenhum empréstimo ativo encontrado para o usuário: " + nomeUsuario);
                 } else {
-                    StringBuilder listaEmprestimos = new StringBuilder("Empréstimos encontrados:\n");
+                    StringBuilder listaEmprestimos = new StringBuilder("Empréstimos ativos encontrados:\n");
                     for (EmprestimoModel emprestimo : emprestimos) {
                         listaEmprestimos.append("ID do Empréstimo: ").append(emprestimo.getIdEmprestimo()).append("\n")
                                 .append("Usuário: ").append(emprestimo.getUsuario().getNome()).append("\n")
@@ -47,6 +47,7 @@ public class EmprestimoUsuarioView {
                 resultadoArea.setText("Erro ao buscar empréstimos: " + ex.getMessage());
             }
         });
+
 
 
         // Configurar ação do botão "Voltar"

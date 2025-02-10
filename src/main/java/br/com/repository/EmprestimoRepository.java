@@ -32,12 +32,6 @@ public class EmprestimoRepository {
         return instance;
     }
 
-    /**
-     * Salva um novo empréstimo no banco de dados.
-     * Agora inclui a data de empréstimo e a data de devolução prevista.
-     * @param emprestimo Objeto do empréstimo
-     * @return Exceção se houver erro, ou null se salvo com sucesso
-     */
     public Exception salvar(EmprestimoModel emprestimo) {
         try {
             entityManager.getTransaction().begin();
@@ -50,11 +44,6 @@ public class EmprestimoRepository {
         }
     }
 
-    /**
-     * Conta quantos livros o usuário pegou emprestado e ainda não devolveu.
-     * @param usuarioId ID do usuário
-     * @return Número de empréstimos ativos
-     */
     public int contarEmprestimosAtivos(int usuarioId) {
         try {
             return ((Number) entityManager.createQuery(
@@ -68,11 +57,6 @@ public class EmprestimoRepository {
         }
     }
 
-    /**
-     * Lista todos os empréstimos ativos de um usuário.
-     * @param usuarioId ID do usuário
-     * @return Lista de empréstimos ativos
-     */
     public List<EmprestimoModel> listarEmprestimosAtivos(int usuarioId) {
         try {
             return entityManager.createQuery(
@@ -89,11 +73,6 @@ public class EmprestimoRepository {
 
 
 
-    /**
-     * Consulta um empréstimo pelo ID.
-     * @param emprestimoId ID do empréstimo
-     * @return Objeto EmprestimoModel ou null se não encontrado
-     */
     public EmprestimoModel consultarPorId(int emprestimoId) {
         try {
             return entityManager.find(EmprestimoModel.class, emprestimoId);
@@ -103,12 +82,6 @@ public class EmprestimoRepository {
         }
     }
 
-    /**
-     * Atualiza um empréstimo no banco de dados.
-     * Isso é usado para registrar a devolução do livro.
-     * @param emprestimo Objeto do empréstimo atualizado
-     * @return Exceção se houver erro, ou null se salvo com sucesso
-     */
     public Exception atualizar(EmprestimoModel emprestimo) {
         try {
             entityManager.getTransaction().begin();
@@ -120,12 +93,12 @@ public class EmprestimoRepository {
             return e;
         }
     }
-    public List<EmprestimoModel> listarEmprestimosPorNomeUsuario(String nomeUsuario) {
+    public List<EmprestimoModel> listarEmprestimosAtivosPorNomeUsuario(String nomeUsuario) {
         try {
             return entityManager.createQuery(
-                            "SELECT e FROM EmprestimoModel e WHERE e.usuario.nome LIKE :nomeUsuario",
-                            EmprestimoModel.class
-                    )
+                            "SELECT e FROM EmprestimoModel e " +
+                                    "WHERE e.usuario.nome LIKE :nomeUsuario " +
+                                    "AND e.dataDevolucao IS NULL", EmprestimoModel.class)
                     .setParameter("nomeUsuario", "%" + nomeUsuario + "%")
                     .getResultList();
         } catch (Exception e) {
@@ -133,5 +106,6 @@ public class EmprestimoRepository {
             return null;
         }
     }
+
 
 }
